@@ -13,4 +13,8 @@ app.use(bodyParser.json());
 app.disable('x-powered-by');
 routes(app);
 
+app.use((err, req, res, next) => {
+  res.status(422).send({ error: err._message, });
+});
+
 module.exports = app;
