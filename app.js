@@ -5,7 +5,9 @@ const routes = require('./routes/routes');
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/muber', { useMongoClient: true });
+if (process.env.NODE_ENV !== 'test') {
+  mongoose.connect('mongodb://localhost:27017/muber', { useMongoClient: true });
+}
 
 app.use(bodyParser.json());
 app.disable('x-powered-by');
