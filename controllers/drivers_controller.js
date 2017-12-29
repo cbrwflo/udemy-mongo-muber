@@ -6,7 +6,7 @@ module.exports = {
   },
 
   create(req, res) {
-    const DriverProps = req.body;
+    const driverProps = req.body;
 
     Driver.create(driverProps)
       .then(driver => res.send(driver));
